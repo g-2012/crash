@@ -143,7 +143,7 @@ public class pageAccueil extends JPanel{
 		valider.addActionListener(validation);
 		
 		// effectue les actions appropriées pour le bouton charger
-				charger chargement = new charger();
+		charger chargement = new charger();
 				charger.addActionListener(chargement);
 				
 				// effectue les actions appropriées pour le bouton popup
