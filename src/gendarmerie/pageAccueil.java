@@ -1,21 +1,17 @@
 package gendarmerie;
 
 import javax.swing.*;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.BorderLayout;
 
-public class pageAccueil extends JFrame{
+import java.awt.*;
+import java.awt.event.ComponentListener;
 
-
-	// Le constructeur crée les composants en mémoire et les ajoute au cadre
-
+public class pageAccueil extends JPanel{
+	
 	pageAccueil() {
 
 		// crée une étiquette permettant de mettre une image de fond à la page d'acccueil
-		JLabel background=new JLabel(new ImageIcon("lenna_complete.jpg"));
-
+		JLabel background = new JLabel( new ImageIcon( "lenaHequa.jpg"));
+	
 		// Affecte un gestionnaire de présentation GridBagLayout à cette étiquette
 		GridBagLayout disposition1 = new GridBagLayout();
 		background.setLayout(disposition1);
@@ -132,7 +128,7 @@ public class pageAccueil extends JFrame{
 		frame.add(background);
 
 
-
+	background.getPreferredSize();
 
 
 		// Affecte à la fenêtre des dimensions suffisantes pour prendre en compte tous les contrôles
@@ -141,6 +137,18 @@ public class pageAccueil extends JFrame{
 		frame.setVisible(true);
 		// Ferme l'application lorsque la fenêtre est fermée
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		// effectue les actions appropriées pour le bouton valider
+		valider validation = new valider();
+		valider.addActionListener(validation);
+		
+		// effectue les actions appropriées pour le bouton charger
+				charger chargement = new charger();
+				charger.addActionListener(chargement);
+				
+				// effectue les actions appropriées pour le bouton popup
+				//popup pop = new popup();
+				//popup.addActionListener(pop);
 	}
 
 }
