@@ -14,7 +14,7 @@ public class pageAccueil extends JFrame{
 	pageAccueil() {
 
 		// crée une étiquette permettant de mettre une image de fond à la page d'acccueil
-		JLabel background=new JLabel(new ImageIcon("D:/lenna_complete.jpg"));
+		JLabel background=new JLabel(new ImageIcon("lenna_complete.jpg"));
 
 		// Affecte un gestionnaire de présentation GridBagLayout à cette étiquette
 		GridBagLayout disposition1 = new GridBagLayout();
