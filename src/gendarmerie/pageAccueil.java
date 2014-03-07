@@ -3,6 +3,7 @@ package gendarmerie;
 import javax.swing.*;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
 /**
  * Ouvre la page d'accueil du programme et permet soit de charger un fichier existant 
  * soit de créer un nouveau fichier
@@ -62,9 +63,9 @@ public class pageAccueil extends JPanel{
 		// proportion d'espace horizontal occupée par ce composant
 		contr1.weightx = 1.0;
 		// proportion d'espace vertical occupée par ce composant
-		contr1.weighty = 1.0;
+		contr1.weighty = 0.1;
 		// position du composant dans la cellule
-		contr1.anchor = GridBagConstraints.CENTER;
+		contr1.anchor = GridBagConstraints.NORTH;
 
 		/**
 		 * Crée le message de bienvenue
@@ -91,19 +92,20 @@ public class pageAccueil extends JPanel{
 		// cette cellule a la même hauteur que les autres
 		contr2.gridheight = 1;
 		//largeur standard
-		contr2.gridwidth = 1;
-		//remplit l'espace dans la cellule
-		contr2.fill = GridBagConstraints.VERTICAL;
+		contr2.gridwidth = 2;
 		// proportion d'espace horizontal occupée par ce composant
 		contr2.weightx = 1;
 		// proportion d'espace vertical occupée par ce composant
 		contr2.weighty = 1;
 		// position du composant dans la cellule
 		contr2.anchor = GridBagConstraints.WEST;
+		
 		/**
 		 * ComboBox permettant de choisir le type de véhicule
 		 */
-		JComboBox choixVehicule= new JComboBox();
+		String[] choix = { "voiture", "camion", "motocyclette"};
+		JComboBox choixVehicule= new JComboBox(choix);
+
 		// Affecte les contraintes à ce champ
 		disposition1.setConstraints(choixVehicule, contr2);
 		// Ajoute le champ à la fenêtre
@@ -141,6 +143,8 @@ public class pageAccueil extends JPanel{
 		// Ajoute le champ à la fenêtre
 		background.add(charger);
 
+
+
 		/**
 		 *  Crée un bouton "valider" pour valider les choix faits
 		 *   et le positionne dans la zone sud de la fenêtre
@@ -177,38 +181,40 @@ public class pageAccueil extends JPanel{
 		 *  Crée le cadre et lui affecte son contenu
 		 */
 		JFrame frame = new JFrame("page d'accueil");
+		
+		
 		frame.add(background);
-
-
+		
+		
+		
 		background.getPreferredSize();
-
 
 
 		// Affecte à la fenêtre des dimensions suffisantes pour prendre en compte tous les contrôles
 		frame.pack();
-
+		
 		// Crée une instance de GridBagConstraints
-		GridBagConstraints contr5 = new GridBagConstraints();
-		// Affecte les contraintes du champ Affichage
-		// coordonnée x dans le quadrillage
-		contr4.gridx = 1;
-		// coordonnée y dans le quadrillage
-		contr4.gridy = 2;
-		// cette cellule a la même hauteur que les autres
-		contr4.gridheight = 1;
-		// cette cellule est 6 fois plus large que les autres
-		contr4.gridwidth = 3;
-		// proportion d'espace horizontal occupée par ce composant
-		contr4.weightx = 1.0;
-		// proportion d'espace vertical occupée par ce composant
-		contr4.weighty = 1.0;
-		// position du composant dans la cellule
-		contr4.anchor = GridBagConstraints.CENTER;	
+				GridBagConstraints contr5 = new GridBagConstraints();
+				// Affecte les contraintes du champ Affichage
+				// coordonnée x dans le quadrillage
+				contr5.gridx = 1;
+				// coordonnée y dans le quadrillage
+				contr5.gridy = 3;
+				// cette cellule a la même hauteur que les autres
+				contr5.gridheight = 1;
+				// cette cellule est 6 fois plus large que les autres
+				contr5.gridwidth = 3;
+				// proportion d'espace horizontal occupée par ce composant
+				contr5.weightx = 1.0;
+				// proportion d'espace vertical occupée par ce composant
+				contr5.weighty = 1.0;
+				// position du composant dans la cellule
+				contr5.anchor = GridBagConstraints.CENTER;	
 
-		disposition1.setConstraints(filename, contr5);
-		filename.setEditable(false);
-		frame.add(filename);
-
+				disposition1.setConstraints(filename, contr5);
+				filename.setEditable(false);
+				frame.add(filename);
+				
 		// Affiche la fenêtre
 		frame.setVisible(true);
 
