@@ -3,12 +3,16 @@ package gendarmerie;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.ComponentListener;
 
 public class pageAccueil extends JPanel{
 	
+	static JTextField filename = new JTextField();
+	static JTextField dir = new JTextField();
+	
 	pageAccueil() {
 
+		
+		
 		// crée une étiquette permettant de mettre une image de fond à la page d'acccueil
 		JLabel background = new JLabel( new ImageIcon( "lenaHequa.jpg"));
 	
@@ -135,6 +139,11 @@ public class pageAccueil extends JPanel{
 		frame.pack();
 		// Affiche la fenêtre
 		frame.setVisible(true);
+		
+		filename.setEditable(false);
+	    frame.add(filename);
+		
+		    
 		// Ferme l'application lorsque la fenêtre est fermée
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
