@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
 public class popup implements ActionListener {
 	public void actionPerformed(ActionEvent événement) {
 		JOptionPane.showConfirmDialog(null,
-		"je parie que tu veux dérouler autre chose qu'une liste...",
-		"lecteur de pensée",
-		JOptionPane.PLAIN_MESSAGE);
-		}
+				"je parie que tu veux dérouler autre chose qu'une liste...",
+				"lecteur de pensée",
+				JOptionPane.PLAIN_MESSAGE);
+	}
 
 }

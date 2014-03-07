@@ -11,16 +11,16 @@ import javax.swing.JOptionPane;
  *
  */
 public class valider implements ActionListener{
-	
+
 	/**
 	 * Méthode effectuée  lorsque le bouton "valider" est pressé
 	 * @param e est le clic sur le bouton "valider" de la page d'accueil
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JOptionPane.showConfirmDialog(null,
-		"faudrait que ça marche...",
-		"test",
-		JOptionPane.PLAIN_MESSAGE);
-		}
+				"faudrait que ça marche...",
+				"test",
+				JOptionPane.PLAIN_MESSAGE);
+	}
 
 }
