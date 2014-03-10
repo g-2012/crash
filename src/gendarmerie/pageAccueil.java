@@ -220,7 +220,7 @@ disposition1.setConstraints(filename, contr5);
 filename.setEditable(false);
 frame.add(filename);
 
-System.out.println(filename.getText()+"blblbl");
+System.out.println(filename.getText()+"bidibidi elephant dangereux");
 
 // Affiche la fenêtre
 frame.setVisible(true);

@@ -1,6 +1,5 @@
 package gendarmerie;
 
-import javax.swing.*;
 
 /**
  * permet de tester si les autres classes fonctionnent correctement
