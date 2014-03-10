@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
  * Classe créant un panneau et y mettant comme image de fond l'image contenue dans la 
  * classe panneauImage. Cette image se retaille automatiquement pour toujours remplir
  * la fenêtre lorsque la taille de celle-ci est modifiée par l'utilisateur.
+ * 
  * @author VCARON
  *
  */

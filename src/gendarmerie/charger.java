@@ -8,6 +8,7 @@ import javax.swing.JFileChooser;
 /**
  * Classe gérant les actions à faire lorsque l'utilisateur presse le bouton "charger"
  * de la page d'accueil
+ * 
  * @author VCARON
  */
 public class charger implements ActionListener {

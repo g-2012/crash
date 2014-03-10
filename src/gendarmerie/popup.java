@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 /**
  * Classe gérant les actions à faire lorsque l'utilisateur presse la JComboBox
  * de la page d'accueil
+ * 
  * @author VCARON
  *
  */
