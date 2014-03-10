@@ -7,10 +7,15 @@ import javax.swing.*;
  * @author VCARON
  *
  */
+
+/**
+ * méthode permettant de lancer le programme et d'ouvrir une page d'accueil.
+ *
+ */
 public class Test {
 
 	public static void main(String[] args){
-		pageAccueil page = new pageAccueil();
+		cadre page = new cadre();
 
 	}
 }

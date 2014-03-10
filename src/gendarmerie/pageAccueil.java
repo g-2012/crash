@@ -35,7 +35,7 @@ pageAccueil() {
 /**
 * crée une étiquette permettant de mettre une image de fond à la page d'acccueil
 */
-JLabel background = new JLabel(new ImageIcon( "lenna_complete.jpg"));
+JLabel background = new JLabel(new ImageIcon( "lenaHequa.jpg"));
 
 /**
 * Affecte un gestionnaire de présentation GridBagLayout à cette étiquette
