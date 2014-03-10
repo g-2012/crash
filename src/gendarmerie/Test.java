@@ -1,6 +1,5 @@
 package gendarmerie;
 
-
 /**
  * permet de tester si les autres classes fonctionnent correctement
  * @author VCARON

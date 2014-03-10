@@ -24,7 +24,7 @@ static JTextField filename = new JTextField();
 * utilisée dans la classe charger pour stocker le nom du chemin dans lequel
 * se trouve le nom du fichier que l'on veut charger
 */
-static JTextField dir = new JTextField();
+//static JTextField dir = new JTextField();
 
 /**
 * Constructeur de la page d'accueil. Il génère une image de fond sur laquelle
@@ -40,26 +40,28 @@ pageAccueil() {
 panneauImage panneau= new panneauImage();
 
 /**
-* Affecte un gestionnaire de présentation GridBagLayout à cette étiquette
+* Affecte un gestionnaire de présentation GridBagLayout à cette étiquettequi va permettre de positionner correctement
+* les boutons et les messages
 */
 GridBagLayout disposition1 = new GridBagLayout();
-//gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
 panneau.setLayout(disposition1);
 
 /**
 * Crée le message de bienvenue et le positionne dans la zone nord de la fenêtre
 */
 
-// Crée une instance de GridBagConstraints
+// Crée une instance de GridBagConstraints pour le positionnement du message de bienvenue
 GridBagConstraints contr1 = new GridBagConstraints();
-// Affecte les contraintes du champ Affichage
+
+// Crée les contraintes de positionnement du message de bienvenue
+
 // coordonnée x dans le quadrillage
 contr1.gridx = 1;
 // coordonnée y dans le quadrillage
 contr1.gridy = 0;
 // cette cellule a la même hauteur que les autres
 contr1.gridheight = 1;
-// cette cellule est 6 fois plus large que les autres
+// cette cellule est 3 fois plus large que les autres
 contr1.gridwidth = 3;
 // remplit tout l'espace dans la cellule
 contr1.fill = GridBagConstraints.BOTH;
@@ -71,30 +73,34 @@ contr1.weighty = 0.1;
 contr1.anchor = GridBagConstraints.NORTH;
 
 /**
-* Crée le message de bienvenue
+* Crée le label contenant le message de bienvenue
 */
 JLabel messageBienvenue= new JLabel();
 messageBienvenue.setText("Bienvenue sur la page d'accueil du programme de dessin de véhicule");
-// Affecte les contraintes à ce champ
+
+// Affecte les contraintes au message de bienvenue
 disposition1.setConstraints(messageBienvenue, contr1);
-// Ajoute le champ à la fenêtre
+
+// Ajoute le message de bienvenue à la fenêtre
 panneau.add(messageBienvenue);
 
 /**
-* Crée un bouton popup proposant une liste de véhicules et le place
+* Crée une JComBoBox proposant une liste de véhicules et le place
 * sur la gauche de la page d'accueil
 */
 
-// Crée une instance de GridBagConstraints
+// Crée une instance de GridBagConstraints pour le positionnement de la JComboBox
 GridBagConstraints contr2 = new GridBagConstraints();
-// Affecte les contraintes du champ Affichage
+
+// Crée les contraintes de positionnement de la JComboBox
+
 // coordonnée x dans le quadrillage
 contr2.gridx = 0;
 // coordonnée y dans le quadrillage
 contr2.gridy = 1;
-// cette cellule a la même hauteur que les autres
+// hauteur standard
 contr2.gridheight = 1;
-//largeur standard
+//cette cellule est 2 fois plus large que les autres
 contr2.gridwidth = 2;
 // proportion d'espace horizontal occupée par ce composant
 contr2.weightx = 1;
@@ -104,14 +110,14 @@ contr2.weighty = 1;
 contr2.anchor = GridBagConstraints.WEST;
 
 /**
-* ComboBox permettant de choisir le type de véhicule
+* JComboBox permettant de choisir le type de véhicule
 */
 String[] choix = { "voiture", "camion", "motocyclette"};
 JComboBox choixVehicule= new JComboBox(choix);
 
-// Affecte les contraintes à ce champ
+// Affecte les contraintes de positionnement à la JComboBox
 disposition1.setConstraints(choixVehicule, contr2);
-// Ajoute le champ à la fenêtre
+// Ajoute la JComboBox à la fenêtre
 panneau.add(choixVehicule);
 
 /**
@@ -119,14 +125,16 @@ panneau.add(choixVehicule);
 * sur la partie droite de la page d'accueil
 */
 
-// Crée une instance de GridBagConstraints
+// Crée une instance de GridBagConstraints pour le positionnement du bouton "charger"
 GridBagConstraints contr3 = new GridBagConstraints();
-// Affecte les contraintes du champ Affichage
+
+// Crée les contraintes de positionnement du bouton "charger"
+
 // coordonnée x dans le quadrillage
 contr3.gridx = 2;
 // coordonnée y dans le quadrillage
 contr3.gridy = 1;
-// cette cellule a la même hauteur que les autres
+// hauteur standard
 contr3.gridheight = 1;
 //largeur standard
 contr3.gridwidth = 1;
@@ -160,9 +168,9 @@ GridBagConstraints contr4 = new GridBagConstraints();
 contr4.gridx = 1;
 // coordonnée y dans le quadrillage
 contr4.gridy = 2;
-// cette cellule a la même hauteur que les autres
+// hauteur standard
 contr4.gridheight = 1;
-// cette cellule est 6 fois plus large que les autres
+// cette cellule est 3 fois plus large que les autres
 contr4.gridwidth = 3;
 // proportion d'espace horizontal occupée par ce composant
 contr4.weightx = 1.0;
@@ -184,47 +192,27 @@ panneau.add(valider);
 * Crée le cadre et lui affecte son contenu
 */
 JFrame frame = new JFrame("page d'accueil");
+
+// disposition2 permet à l'image de se retailler dynamiquement lorsque la taille de la fenêtre est changée par l'utilisateur
 GridBagLayout disposition2 = new GridBagLayout();
 frame.setLayout(disposition2);
 disposition2.setConstraints(panneau, contr1);
 
-
+// ajoute le panneau à la fenêtre
 frame.add(panneau);
-
-
 
 // Affecte à la fenêtre des dimensions suffisantes pour prendre en compte tous les contrôles
 frame.pack();
 
-// Crée une instance de GridBagConstraints
-GridBagConstraints contr5 = new GridBagConstraints();
-// Affecte les contraintes du champ Affichage
-// coordonnée x dans le quadrillage
-contr5.gridx = 1;
-// coordonnée y dans le quadrillage
-contr5.gridy = 3;
-// cette cellule a la même hauteur que les autres
-contr5.gridheight = 1;
-// cette cellule est 6 fois plus large que les autres
-contr5.gridwidth = 3;
-// proportion d'espace horizontal occupée par ce composant
-contr5.weightx = 1.0;
-// proportion d'espace vertical occupée par ce composant
-contr5.weighty = 1.0;
-// position du composant dans la cellule
-contr5.anchor = GridBagConstraints.CENTER;	
 
-
-disposition1.setConstraints(filename, contr5);
-
+//empêche l'utilisateur d'editer le contenu de la variable filename
 filename.setEditable(false);
-frame.add(filename);
 
-System.out.println(filename.getText()+"bidibidi elephant dangereux");
+//fait apparaître le nom du fichier séléctionné sur la fenêtre
+frame.add(filename);
 
 // Affiche la fenêtre
 frame.setVisible(true);
-
 
 
 // Ferme l'application lorsque la fenêtre est fermée
