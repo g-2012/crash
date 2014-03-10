@@ -3,7 +3,6 @@ package gendarmerie;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 /**
  * Classe créant la page d'accueil. L'image de fond est utilisée en faisant appel à 
@@ -44,6 +43,7 @@ panneauImage panneau= new panneauImage();
 * Affecte un gestionnaire de présentation GridBagLayout à cette étiquette
 */
 GridBagLayout disposition1 = new GridBagLayout();
+//gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
 panneau.setLayout(disposition1);
 
 /**
@@ -69,7 +69,7 @@ contr1.weightx = 1.0;
 contr1.weighty = 0.1;
 // position du composant dans la cellule
 contr1.anchor = GridBagConstraints.NORTH;
-
+//contr1.gridwidth=GridBagConstraints.RELATIVE;
 /**
 * Crée le message de bienvenue
 */
@@ -102,7 +102,7 @@ contr2.weightx = 1;
 contr2.weighty = 1;
 // position du composant dans la cellule
 contr2.anchor = GridBagConstraints.WEST;
-
+//contr2.gridwidth=GridBagConstraints.RELATIVE;
 /**
 * ComboBox permettant de choisir le type de véhicule
 */
@@ -136,7 +136,7 @@ contr3.weightx = 1;
 contr3.weighty = 1;
 // position du composant dans la cellule
 contr3.anchor = GridBagConstraints.EAST;
-
+//contr3.gridwidth=GridBagConstraints.RELATIVE;
 /**
 * Bouton permettant de charger un fichier existant
 */
@@ -170,7 +170,7 @@ contr4.weightx = 1.0;
 contr4.weighty = 1.0;
 // position du composant dans la cellule
 contr4.anchor = GridBagConstraints.CENTER;	
-
+//contr4.gridwidth=GridBagConstraints.RELATIVE;
 /**
 * création du bouton "valider"
 */
@@ -184,10 +184,19 @@ panneau.add(valider);
 * Crée le cadre et lui affecte son contenu
 */
 JFrame frame = new JFrame("cadre");
+GridBagLayout disposition2 = new GridBagLayout();
+frame.setLayout(disposition2);
+disposition2.setConstraints(panneau, contr1);
+
 
 frame.add(panneau);
 
+int height = frame.getSize().height;
+int width = frame.getSize().width;
 
+System.out.println(height+" "+width);
+
+//panneau.setPreferredSize(new Dimension(height, width));
 
 
 // Affecte à la fenêtre des dimensions suffisantes pour prendre en compte tous les contrôles
@@ -210,7 +219,7 @@ contr5.weightx = 1.0;
 contr5.weighty = 1.0;
 // position du composant dans la cellule
 contr5.anchor = GridBagConstraints.CENTER;	
-
+contr5.gridwidth=GridBagConstraints.RELATIVE;
 disposition1.setConstraints(filename, contr5);
 filename.setEditable(false);
 frame.add(filename);

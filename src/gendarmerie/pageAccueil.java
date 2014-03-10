@@ -3,7 +3,6 @@ package gendarmerie;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
 /**
 * Ouvre la page d'accueil du programme et permet soit de charger un fichier existant
 * soit de créer un nouveau fichier

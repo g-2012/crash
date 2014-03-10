@@ -2,9 +2,6 @@ package gendarmerie;
 
 import javax.swing.*;
 
-import java.awt.*;
-import java.awt.event.ActionListener;
-
 /**
  * Classe créant un panneau et y mettant comme image de fond l'image contenue dans la 
  * classe panneauImage. Cette image se retaille automatiquement pour toujours remplir
@@ -21,7 +18,10 @@ public class cadre2 extends JFrame{
 		 panneauImage panneau= new panneauImage();
 		    frame.add(panneau);
 
+		    int height = frame.getSize().height;
+		    int width = frame.getSize().width;
 
+		    System.out.println(height+" "+width);
 
 		    // Affecte à la fenêtre des dimensions suffisantes pour prendre en compte tous les contrôles
 		    frame.pack();

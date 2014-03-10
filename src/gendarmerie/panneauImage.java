@@ -1,19 +1,16 @@
 package gendarmerie;
 
+
 import javax.swing.*;
 
 import java.awt.*;
 
 import java.awt.Graphics;
-import java.awt.GridBagConstraints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 /**
 * Classe permettant de charger une photo dans un JPanel. Les objets de cette classe
@@ -32,7 +29,6 @@ public class panneauImage extends JPanel{
        } catch (IOException ex) {
        }
     }
-
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g); // méthode paint dessinant l'image de fond
