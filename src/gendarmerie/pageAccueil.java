@@ -232,7 +232,7 @@ GridBagConstraints contr5 = new GridBagConstraints();
 
 // Crée les contraintes du butons "valider"
 // coordonnée x dans le quadrillage
-contr5.gridx = 1;
+contr5.gridx = 0;
 // coordonnée y dans le quadrillage
 contr5.gridy = 2;
 // hauteur standard
@@ -259,7 +259,7 @@ panneau.add(valider);
 /**
 * Crée le cadre et lui affecte son contenu
 */
-JFrame frame = new JFrame("page d'accueil");
+JFrame frame = new JFrame("Programme de dessin de véhicule");
 
 // disposition2 permet à l'image de se retailler dynamiquement lorsque la taille de la fenêtre est changée par l'utilisateur
 GridBagLayout disposition2 = new GridBagLayout();
