@@ -3,13 +3,16 @@ package gendarmerie;
 import javax.swing.*;
 
 import java.awt.*;
+
 /**
-* Ouvre la page d'accueil du programme et permet soit de charger un fichier existant
-* soit de créer un nouveau fichier
-*
-* @author VCARON
-*
-*/
+ * Classe créant la page d'accueil. L'image de fond est utilisée en faisant appel à 
+ * la classe  panneauImage. Les boutons et leur dispostion sont gérés par la classe cadre
+ * 
+ * @author VCARON
+ *
+ */
+
+
 public class pageAccueil extends JPanel{
 
 /**
@@ -34,13 +37,14 @@ pageAccueil() {
 /**
 * crée une étiquette permettant de mettre une image de fond à la page d'acccueil
 */
-JLabel background = new JLabel(new ImageIcon( "lenaHequa.jpg"));
+panneauImage panneau= new panneauImage();
 
 /**
 * Affecte un gestionnaire de présentation GridBagLayout à cette étiquette
 */
 GridBagLayout disposition1 = new GridBagLayout();
-background.setLayout(disposition1);
+//gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
+panneau.setLayout(disposition1);
 
 /**
 * Crée le message de bienvenue et le positionne dans la zone nord de la fenêtre
@@ -74,7 +78,7 @@ messageBienvenue.setText("Bienvenue sur la page d'accueil du programme de dessin
 // Affecte les contraintes à ce champ
 disposition1.setConstraints(messageBienvenue, contr1);
 // Ajoute le champ à la fenêtre
-background.add(messageBienvenue);
+panneau.add(messageBienvenue);
 
 /**
 * Crée un bouton popup proposant une liste de véhicules et le place
@@ -108,7 +112,7 @@ JComboBox choixVehicule= new JComboBox(choix);
 // Affecte les contraintes à ce champ
 disposition1.setConstraints(choixVehicule, contr2);
 // Ajoute le champ à la fenêtre
-background.add(choixVehicule);
+panneau.add(choixVehicule);
 
 /**
 * Crée un bouton "charger" permettant de charger un fichier existant et le place
@@ -140,7 +144,7 @@ JButton charger= new JButton("charger");
 // Affecte les contraintes à ce champ
 disposition1.setConstraints(charger, contr3);
 // Ajoute le champ à la fenêtre
-background.add(charger);
+panneau.add(charger);
 
 
 
@@ -174,19 +178,19 @@ JButton valider= new JButton("Valider");
 // Affecte les contraintes à ce champ
 disposition1.setConstraints(valider, contr4);
 // Ajoute le champ à la fenêtre
-background.add(valider);
+panneau.add(valider);
 
 /**
 * Crée le cadre et lui affecte son contenu
 */
 JFrame frame = new JFrame("page d'accueil");
+GridBagLayout disposition2 = new GridBagLayout();
+frame.setLayout(disposition2);
+disposition2.setConstraints(panneau, contr1);
 
 
-frame.add(background);
+frame.add(panneau);
 
-
-
-background.getPreferredSize();
 
 
 // Affecte à la fenêtre des dimensions suffisantes pour prendre en compte tous les contrôles
@@ -210,9 +214,13 @@ contr5.weighty = 1.0;
 // position du composant dans la cellule
 contr5.anchor = GridBagConstraints.CENTER;	
 
+
 disposition1.setConstraints(filename, contr5);
+
 filename.setEditable(false);
 frame.add(filename);
+
+System.out.println(filename.getText()+"blblbl");
 
 // Affiche la fenêtre
 frame.setVisible(true);
@@ -229,10 +237,6 @@ valider.addActionListener(validation);
 // effectue les actions appropriées pour le bouton charger
 charger chargement = new charger();
 charger.addActionListener(chargement);
-
-// effectue les actions appropriées pour le bouton popup
-//popup pop = new popup();
-//popup.addActionListener(pop);
+}
 }
 
-}

@@ -15,7 +15,7 @@ import javax.swing.*;
 public class Test {
 
 	public static void main(String[] args){
-		cadre page = new cadre();
+		pageAccueil page = new pageAccueil();
 
 	}
 }
