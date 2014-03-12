@@ -30,6 +30,7 @@ public class PanneauImage extends JPanel{
 			image = ImageIO.read(new File("Logo_Gendarmerie_Nationale_Francaise.jpg"));
 
 		} catch (IOException ex) {
+			System.out.println("Je ne peux pas lire le fichier image");
 		}
 	}
 	public void paintComponent(Graphics g) {

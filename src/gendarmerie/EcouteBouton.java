@@ -32,7 +32,7 @@ public class EcouteBouton implements ActionListener, ItemListener{
 			}
 		}else if(boutonClique == PageAccueil.valider) {
 			JOptionPane.showConfirmDialog(null,
-					"Java n'est pas ma tasse de thé...Huhuhu!!!!",
+					"Java n'est pas ma tasse de thé...Huhuhu!!!!Humour de MERDE!!!",
 					"test",
 					JOptionPane.PLAIN_MESSAGE);
 
@@ -46,9 +46,9 @@ public class EcouteBouton implements ActionListener, ItemListener{
 	public void itemStateChanged(ItemEvent e) {
 		JComboBox choix = ((JComboBox)e.getSource());
 		if(choix == PageAccueil.choixVehicule) {
-			JOptionPane.showConfirmDialog(null,
-					"Javabien? Javamine!!",
-					"générateur de blagues",
+			JOptionPane.showMessageDialog(null,
+					"Javabien? Javamine!! Hahahaha....C'est nul!!!",
+					"générateur de blagues nulles",
 					JOptionPane.PLAIN_MESSAGE);
 		}
 
