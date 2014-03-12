@@ -19,7 +19,7 @@ public class valider implements ActionListener{
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JOptionPane.showConfirmDialog(null,
-				"Java n'est pas ma tasse de thé...Hahaha!!!!",
+				"Java n'est pas ma tasse de thé...Huhuhu!!!!",
 				"test",
 				JOptionPane.PLAIN_MESSAGE);
 	}
