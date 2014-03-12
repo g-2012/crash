@@ -13,26 +13,44 @@ import java.awt.*;
  */
 
 
-public class pageAccueil{
+public class PageAccueil{
 
 	/**
-	 * utilisée dans la classe charger pour stocker le nom du fichier que l'on veut charger
+	 *utilisée dans la classe charger pour stocker le nom du fichier que l'on veut charger
 	 */
 	static JTextField filename = new JTextField();
+	/**
+	 * déclaration du bouton "charger" qui sera crée dans le constructeur
+	 */
+	public static JButton charger;
+	/**
+	 * déclaration du bouton "valider" qui sera crée dans le constructeur
+	 */
+	public static JButton valider;
+
+	/**
+	 * déclaration des choix proposés par la combobox "choixVehicule"
+	 */
+	String[] choix = { "voiture", "camion", "motocyclette"};
+	
+	/**
+	 * déclaration de la combobox "choixVehicule" qui sera créee dans le constructeur
+	 */
+	public static JComboBox<Object> choixVehicule;
 
 
 	/**
 	 * Constructeur de la page d'accueil. Il génère une image de fond sur laquelle
 	 * se superposent un message d'accueil et les différents boutons permettant d'agir
 	 */
-	pageAccueil() {
+	PageAccueil() {
 
 
 
 		/**
 		 * Instancie la classe panneauImage permettant de mettre une image de fond à la page d'acccueil
 		 */
-		panneauImage panneau= new panneauImage();
+		PanneauImage panneau= new PanneauImage();
 
 		/**
 		 * Affecte un gestionnaire de présentation GridBagLayout à panneau qui va permettre de positionner correctement
@@ -178,8 +196,7 @@ public class pageAccueil{
 		/**
 		 * JComboBox permettant de choisir le type de véhicule
 		 */
-		String[] choix = { "voiture", "camion", "motocyclette"};
-		JComboBox<Object> choixVehicule= new JComboBox<Object>(choix);
+		choixVehicule= new JComboBox<Object>(choix);
 
 		// Affecte les contraintes de positionnement à la JComboBox
 		disposition1.setConstraints(choixVehicule, contr3);
@@ -214,7 +231,7 @@ public class pageAccueil{
 		/**
 		 * Bouton permettant de charger un fichier existant
 		 */
-		JButton charger= new JButton("charger");
+		charger= new JButton("charger");
 		// Affecte les contraintes à ce champ
 		disposition1.setConstraints(charger, contr4);
 		// Ajoute le bouton "charger" au panneau
@@ -249,7 +266,7 @@ public class pageAccueil{
 		/**
 		 * création du bouton "valider"
 		 */
-		JButton valider= new JButton("humour");
+		valider= new JButton("humour");
 
 		// Affecte les contraintes au bouton "valider"
 		disposition1.setConstraints(valider, contr5);
@@ -279,17 +296,17 @@ public class pageAccueil{
 		//affecte les contraintes de remplissage au panneau
 		disposition2.setConstraints(panneau,contr6);
 
-		
+
 		//panneau.setMinimumSize(new Dimension(panneauImage.image.getHeight(),panneauImage.image.getWidth()));
 
 		// ajoute le panneau à la fenêtre
 		frame.add(panneau);
 
 
-		
+
 		// donne une taille minimale à la fenêtre en fonction de l'image
-		frame.setMinimumSize(new Dimension(panneauImage.image.getHeight(),panneauImage.image.getWidth()));
-		
+		frame.setMinimumSize(new Dimension(PanneauImage.image.getHeight(),PanneauImage.image.getWidth()));
+
 		// Affecte à la fenêtre des dimensions suffisantes pour prendre en compte tous les contrôles
 		frame.pack();
 
@@ -306,13 +323,13 @@ public class pageAccueil{
 		// Ferme l'application lorsque la fenêtre est fermée
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		// effectue les actions appropriées pour le bouton valider
-		valider validation = new valider();
-		valider.addActionListener(validation);
-
-		// effectue les actions appropriées pour le bouton charger
-		charger chargement = new charger();
-		charger.addActionListener(chargement);
+		/* effectue les actions appropriées lorsque l'utilisateur intéragit avec les boutons (charger ou valider) 
+		 * ou la JComboBox choixVehicule de la page d'accueil. Toutes ces actions sont gérées par la classe ecouteBouton*/
+		EcouteBouton ecouteur = new EcouteBouton();
+		valider.addActionListener(ecouteur);
+		charger.addActionListener(ecouteur);
+		choixVehicule.addItemListener(ecouteur);
 	}
 }
+
 

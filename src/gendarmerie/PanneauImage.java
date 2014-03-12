@@ -7,14 +7,14 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+
 /**
- * Classe permettant de charger une photo dans un JPanel. Les objets de cette classesont utilisés par la classe pageAccueil
+ * Classe permettant de charger une photo dans un JPanel. Les objets de cette classe sont utilisés par la classe pageAccueil
  *  pour générer une image de fond
  * 
  * @author VCARON
- *
  */
-public class panneauImage extends JPanel{
+public class PanneauImage extends JPanel{
 
 	/**
 	 *  Le champ serialVersionUID est utilisé lors de la désérialization afin de s'assurer que les versions des classes Java 
@@ -25,14 +25,13 @@ public class panneauImage extends JPanel{
 
 	protected static BufferedImage image;
 
-	public panneauImage() { // permet de gérer les exceptions...
+	public PanneauImage() { // permet de gérer les exceptions...
 		try {
 			image = ImageIO.read(new File("Logo_Gendarmerie_Nationale_Francaise.jpg"));
-			
+
 		} catch (IOException ex) {
 		}
 	}
-	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g); // méthode paint dessinant l'image de fond
 		if (image != null) { //S'il y a une image, il faut la dessiner
