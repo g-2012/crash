@@ -5,8 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Classe créant la page d'accueil. L'image de fond est utilisée en faisant appel à 
- * la classe  panneauImage. Les boutons et leur dispostion sont gérés par la classe cadre
+ * Classe créant la page d'accueil. L'image de fond est utilisée en faisant appel à la classe PanneauImage. L'intéraction
+ *  de l'utilisateur avec les boutons de la page est gérée par la classe EcouteBouton
  * 
  * @author VCARON
  *
@@ -16,7 +16,7 @@ import java.awt.*;
 public class PageAccueil{
 
 	/**
-	 *utilisée dans la classe charger pour stocker le nom du fichier que l'on veut charger
+	 *utilisée dans la classe EcouteBouton pour stocker le nom du fichier que l'on veut charger
 	 */
 	static JTextField filename = new JTextField();
 	/**
@@ -29,10 +29,10 @@ public class PageAccueil{
 	public static JButton valider;
 
 	/**
-	 * déclaration des choix proposés par la combobox "choixVehicule"
+	 * déclaration des choix qui seront proposés par la combobox "choixVehicule"
 	 */
-	String[] choix = { "voiture", "camion", "motocyclette"};
-	
+	String[] choix = { "voiture", "camion", "motocyclette", "semi-remorque"};
+
 	/**
 	 * déclaration de la combobox "choixVehicule" qui sera créee dans le constructeur
 	 */
@@ -40,48 +40,49 @@ public class PageAccueil{
 
 
 	/**
-	 * Constructeur de la page d'accueil. Il génère une image de fond sur laquelle
-	 * se superposent un message d'accueil et les différents boutons permettant d'agir
+	 * Constructeur de la page d'accueil. Il génère une image de fond sur laquelle se superposent un message d'accueil et 
+	 * les différents boutons permettant de lancer piloter l'application
 	 */
 	PageAccueil() {
 
 
 
 		/**
-		 * Instancie la classe panneauImage permettant de mettre une image de fond à la page d'acccueil
+		 * Instancie la classe panneauImage. La variable panneau charge une image qui sert d'image de fond 
+		 * à la page d'accueil
 		 */
 		PanneauImage panneau= new PanneauImage();
 
 		/**
-		 * Affecte un gestionnaire de présentation GridBagLayout à panneau qui va permettre de positionner correctement
-		 * les boutons et les messages sur le panneau
+		 * crée et affecte un gestionnaire de présentation GridBagLayout à panneau qui va permettre de positionner 
+		 * correctement les boutons et les messages sur le panneau
 		 */
 		GridBagLayout disposition1 = new GridBagLayout();
 		panneau.setLayout(disposition1);
 
 		/**
-		 * Crée le message de bienvenue et le positionne dans la zone nord centrée de la fenêtre. Pour centrer le message, on crée
-		 * 2 Jlabels vides qui encadrent le label contenant le message de bienvenue 
+		 * Crée le message de bienvenue et le positionne dans la zone nord centrée de la fenêtre. Pour centrer le message, 
+		 * on crée 2 Jlabels vides qui encadrent le label contenant le message de bienvenue 
 		 */
 
-		//Crée une instance de GridBagConstraints pour le positionnement du Jlabel vide1
+		//Crée une instance de GridBagConstraints pour le positionnement et la taille du Jlabel vide1
 		GridBagConstraints contr0 = new GridBagConstraints();
 
-		//Crée les contraintes de positionnement du Jlabel vide1
+		//Crée les contraintes de positionnement et de taille du Jlabel vide1
 
 		//coordonnée x dans le quadrillage
 		contr0.gridx = 0;
 		//coordonnée y dans le quadrillage
 		contr0.gridy = 0;
-		//hauteur standard
+		//hauteur standard de la cellule
 		contr0.gridheight = 1;
-		//largeur standard
+		//largeur standard de la cellule
 		contr0.gridwidth = 1;
 		//remplit tout l'espace dans la cellule
 		contr0.fill = GridBagConstraints.BOTH;
-		//proportion d'espace horizontal occupée par ce composant
+		//proportion d'espace horizontal occupée par ce composant dans la cellule
 		contr0.weightx = 1;
-		//proportion d'espace vertical occupée par ce composant
+		//proportion d'espace vertical occupée par ce composant dans la cellule
 		contr0.weighty = 0.1;
 		//position du composant dans la cellule
 		contr0.anchor = GridBagConstraints.CENTER;
@@ -92,30 +93,30 @@ public class PageAccueil{
 		JLabel vide1= new JLabel();
 
 
-		//Affecte les contraintes au Jlabel vide1
+		//Affecte les contraintes de positionnement et de taille au Jlabel vide1
 		disposition1.setConstraints(vide1, contr0);
 
 		//Ajoute le Jlabel vide1 au panneau
 		panneau.add(vide1);
 
-		//Crée une instance de GridBagConstraints pour le positionnement du Jlabel vide2
+		//Crée une instance de GridBagConstraints pour le positionnement et la taille du Jlabel vide2
 		GridBagConstraints contr1 = new GridBagConstraints();
 
-		//Crée les contraintes de positionnement du Jlabel vide2
+		//Crée les contraintes de positionnement et de taille du Jlabel vide2
 
 		//coordonnée x dans le quadrillage
 		contr1.gridx = 2;
 		//coordonnée y dans le quadrillage
 		contr1.gridy = 0;
-		//hauteur standard
+		//hauteur standard de la cellule
 		contr1.gridheight = 1;
-		//largeur standard
+		//largeur standard de la cellule
 		contr1.gridwidth = 1;
 		//remplit tout l'espace dans la cellule
 		contr1.fill = GridBagConstraints.BOTH;
-		//proportion d'espace horizontal occupée par ce composant
+		//proportion d'espace horizontal occupée par ce composant dans la cellule
 		contr1.weightx = 1;
-		//proportion d'espace vertical occupée par ce composant
+		//proportion d'espace vertical occupée par ce composant dans la cellule
 		contr1.weighty = 0.1;
 		//position du composant dans la cellule
 		contr1.anchor = GridBagConstraints.CENTER;
@@ -125,70 +126,73 @@ public class PageAccueil{
 		 */
 		JLabel vide2= new JLabel();
 
-		//Affecte les contraintes au label vide2
+		//Affecte les contraintes de positionnement et de taille au Jlabel vide2
 		disposition1.setConstraints(vide2, contr1);
 
-		//Ajoute le label vide2 au panneau
+		//Ajoute le Jlabel vide2 au panneau
 		panneau.add(vide2);
 
 
-		// Crée une instance de GridBagConstraints pour le positionnement du message de bienvenue
+		// Crée une instance de GridBagConstraints pour le positionnement et la taille du message de bienvenue
 		GridBagConstraints contr2 = new GridBagConstraints();
 
-		// Crée les contraintes de positionnement du message de bienvenue
+		// Crée les contraintes de positionnement et de taille du message de bienvenue
 
 		// coordonnée x dans le quadrillage
 		contr2.gridx = 1;
 		// coordonnée y dans le quadrillage
 		contr2.gridy = 0;
-		// hauteur standard
+		// hauteur standard de la cellule
 		contr2.gridheight = 1;
-		// largeur standard
+		// largeur standard de la cellule
 		contr2.gridwidth = 1;
 		// remplit tout l'espace dans la cellule
 		contr2.fill = GridBagConstraints.BOTH;
-		// proportion d'espace horizontal occupée par ce composant
+		// proportion d'espace horizontal occupée par ce composant dans la cellule
 		contr2.weightx = 1;
-		// proportion d'espace vertical occupée par ce composant
+		// proportion d'espace vertical occupée par ce composant dans la cellule
 		contr2.weighty = 0.1;
 		// position du composant dans la cellule
 		contr2.anchor = GridBagConstraints.CENTER;
 
 		/**
-		 * Crée le label contenant le message de bienvenue qui est centré sur le JLabel
+		 * Crée le label contenant le message de bienvenue qui est centré sur le JLabel. Le message est écrit en noir sur 
+		 * fond blanc
 		 */
 		JLabel messageBienvenue= new JLabel("Bienvenue sur la page d'accueil du programme de dessin de véhicule",SwingConstants.CENTER);
 		messageBienvenue.setOpaque(true);
 		messageBienvenue.setBackground(Color.white);
 		messageBienvenue.setForeground(Color.black);
 
-		// Affecte les contraintes au message de bienvenue
+		// Affecte les contraintes de positionnement et de taille au message de bienvenue
 		disposition1.setConstraints(messageBienvenue, contr2);
 
 		// Ajoute le message de bienvenue au panneau
 		panneau.add(messageBienvenue);
 
 		/**
-		 * Crée une JComBoBox proposant une liste de véhicules et le place
-		 * sur la gauche de la page d'accueil
+		 * Crée une JComBoBox proposant une liste de véhicules et le place sur la gauche de la page d'accueil
 		 */
 
-		// Crée une instance de GridBagConstraints pour le positionnement de la JComboBox
+		// Crée une instance de GridBagConstraints pour le positionnement et la taille de la JComboBox
 		GridBagConstraints contr3 = new GridBagConstraints();
 
-		// Crée les contraintes de positionnement de la JComboBox
+		// Crée les contraintes de positionnement et de taille de la JComboBox
 
 		// coordonnée x dans le quadrillage
 		contr3.gridx = 0;
 		// coordonnée y dans le quadrillage
 		contr3.gridy = 1;
-		// hauteur standard
+		// hauteur standard de la cellule
 		contr3.gridheight = 1;
 		//cette cellule est 2 fois plus large que les autres
 		contr3.gridwidth = 2;
-		// proportion d'espace horizontal occupée par ce composant
+		//ipadx et ipady indiquent le nombre de pixels dont on doit accroître le composant en plus de sa taille minimum 
+		contr3.ipadx= 50;
+		contr3.ipady= 50;
+		// proportion d'espace horizontal occupée par ce composant dans la cellule
 		contr3.weightx = 1;
-		// proportion d'espace vertical occupée par ce composant
+		// proportion d'espace vertical occupée par ce composant dans la cellule
 		contr3.weighty = 1;
 		// position du composant dans la cellule
 		contr3.anchor = GridBagConstraints.WEST;
@@ -198,41 +202,44 @@ public class PageAccueil{
 		 */
 		choixVehicule= new JComboBox<Object>(choix);
 
-		// Affecte les contraintes de positionnement à la JComboBox
+		// Affecte les contraintes de positionnement et de taille à la JComboBox
 		disposition1.setConstraints(choixVehicule, contr3);
 		// Ajoute la JComboBox au panneau
 		panneau.add(choixVehicule);
 
 		/**
-		 * Crée un bouton "charger" permettant de charger un fichier existant et le place
-		 * sur la partie droite de la page d'accueil
+		 * Crée un bouton "charger" permettant de charger un fichier existant et le place sur la partie droite 
+		 * de la page d'accueil
 		 */
 
-		// Crée une instance de GridBagConstraints pour le positionnement du bouton "charger"
+		// Crée une instance de GridBagConstraints pour le positionnement et la taille du bouton "charger"
 		GridBagConstraints contr4 = new GridBagConstraints();
 
-		// Crée les contraintes de positionnement du bouton "charger"
+		// Crée les contraintes de positionnement et de taille du bouton "charger"
 
 		// coordonnée x dans le quadrillage
 		contr4.gridx = 2;
 		// coordonnée y dans le quadrillage
 		contr4.gridy = 1;
-		// hauteur standard
+		// hauteur standard de la cellule
 		contr4.gridheight = 1;
-		//largeur standard
+		//largeur standard de la cellule
 		contr4.gridwidth = 1;
-		// proportion d'espace horizontal occupée par ce composant
+		//ipadx et ipady indiquent le nombre de pixels dont on doit accroître le composant en plus de sa taille minimum 
+		contr4.ipadx= 50;
+		contr4.ipady= 50;
+		// proportion d'espace horizontal occupée par ce composant dans la cellule
 		contr4.weightx = 1;
-		// proportion d'espace vertical occupée par ce composant
+		// proportion d'espace vertical occupée par ce composant dans la cellule
 		contr4.weighty = 1;
 		// position du composant dans la cellule
 		contr4.anchor = GridBagConstraints.EAST;
 
 		/**
-		 * Bouton permettant de charger un fichier existant
+		 * Instanciation du bouton "charger" permettant de charger un fichier existant
 		 */
 		charger= new JButton("charger");
-		// Affecte les contraintes à ce champ
+		// Affecte les contraintes de positionnement et de taille au bouton "charger"
 		disposition1.setConstraints(charger, contr4);
 		// Ajoute le bouton "charger" au panneau
 		panneau.add(charger);
@@ -240,26 +247,28 @@ public class PageAccueil{
 
 
 		/**
-		 * Crée un bouton "valider" pour valider les choix faits
-		 * et le positionne dans la zone sud de la fenêtre
+		 * Crée un bouton "valider" pour valider les choix faits et le positionne dans la zone sud de la fenêtre
 		 */
 
-		// Crée une instance de GridBagConstraints
+		// Crée une instance de GridBagConstraints pour le positionnement et la taille du bouton "valider"
 		GridBagConstraints contr5 = new GridBagConstraints();
 
-		// Crée les contraintes du butons "valider"
+		// Crée les contraintes de positionnement et de taille du bouton "valider"
 		// coordonnée x dans le quadrillage
 		contr5.gridx = 0;
 		// coordonnée y dans le quadrillage
 		contr5.gridy = 2;
-		// hauteur standard
+		// hauteur standard de la cellule
 		contr5.gridheight = 1;
 		// cette cellule est 3 fois plus large que les autres
 		contr5.gridwidth = 3;
-		// proportion d'espace horizontal occupée par ce composant
-		contr5.weightx = 1.0;
-		// proportion d'espace vertical occupée par ce composant
-		contr5.weighty = 1.0;
+		//ipadx et ipady indiquent le nombre de pixels dont on doit accroître le composant en plus de sa taille minimum 
+		contr5.ipadx= 50;
+		contr5.ipady= 50;
+		// proportion d'espace horizontal occupée par ce composant dans la cellule
+		contr5.weightx = 1;
+		// proportion d'espace vertical occupée par ce composant dans la cellule
+		contr5.weighty = 1;
 		// position du composant dans la cellule
 		contr5.anchor = GridBagConstraints.CENTER;	
 
@@ -268,7 +277,7 @@ public class PageAccueil{
 		 */
 		valider= new JButton("humour");
 
-		// Affecte les contraintes au bouton "valider"
+		// Affecte les contraintes de positionnement et de taille au bouton "valider"
 		disposition1.setConstraints(valider, contr5);
 		// Ajoute le bouton "valider" au panneau
 		panneau.add(valider);
@@ -278,7 +287,8 @@ public class PageAccueil{
 		 */
 		JFrame frame = new JFrame("Programme de dessin de véhicule");
 
-		// disposition2 permet à l'image de se retailler dynamiquement lorsque la taille de la fenêtre est changée par l'utilisateur
+		/* disposition2 permet à l'image de se retailler dynamiquement lorsque la taille de la fenêtre est changée par 
+		l'utilisateur*/
 		GridBagLayout disposition2 = new GridBagLayout();
 		frame.setLayout(disposition2);
 		//Crée une instance de GridBagConstraints pour que le panneau remplisse intégralement dans la fenêtre
@@ -296,13 +306,8 @@ public class PageAccueil{
 		//affecte les contraintes de remplissage au panneau
 		disposition2.setConstraints(panneau,contr6);
 
-
-		//panneau.setMinimumSize(new Dimension(panneauImage.image.getHeight(),panneauImage.image.getWidth()));
-
 		// ajoute le panneau à la fenêtre
 		frame.add(panneau);
-
-
 
 		// donne une taille minimale à la fenêtre en fonction de l'image
 		frame.setMinimumSize(new Dimension(PanneauImage.image.getHeight(),PanneauImage.image.getWidth()));
@@ -323,8 +328,8 @@ public class PageAccueil{
 		// Ferme l'application lorsque la fenêtre est fermée
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		/* effectue les actions appropriées lorsque l'utilisateur intéragit avec les boutons (charger ou valider) 
-		 * ou la JComboBox choixVehicule de la page d'accueil. Toutes ces actions sont gérées par la classe ecouteBouton*/
+		/* effectue les actions appropriées lorsque l'utilisateur intéragit avec les boutons ("charger" ou "valider") 
+		 * ou la JComboBox "choixVehicule" de la page d'accueil. Toutes ces actions sont gérées par la classe EcouteBouton*/
 		EcouteBouton ecouteur = new EcouteBouton();
 		valider.addActionListener(ecouteur);
 		charger.addActionListener(ecouteur);
